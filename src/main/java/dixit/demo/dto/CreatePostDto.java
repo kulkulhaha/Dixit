@@ -5,6 +5,7 @@ import dixit.demo.domain.Post;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,9 @@ import static jakarta.persistence.FetchType.LAZY;
 @NoArgsConstructor
 public class CreatePostDto {
 
+    @NotBlank
     private String title;
+    @NotBlank
     private String content;
     private Member member;
 

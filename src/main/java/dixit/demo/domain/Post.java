@@ -1,5 +1,6 @@
 package dixit.demo.domain;
 
+import dixit.demo.dto.PostEditor;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -40,5 +41,16 @@ public class Post extends BaseEntity{
         this.comments = comments;
         this.child = child;
         this.parent = parent;
+    }
+
+    public PostEditor.PostEditorBuilder toEditor(){
+        return PostEditor.builder()
+                .title(title)
+                .content(content);
+    }
+
+    public void edit(PostEditor editor){
+        title = editor.getTitle();
+        content = editor.getContent();
     }
 }

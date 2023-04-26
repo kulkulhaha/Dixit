@@ -3,6 +3,8 @@ package dixit.demo.service;
 import dixit.demo.domain.Post;
 import dixit.demo.dto.CreatePostDto;
 import dixit.demo.dto.FindPostDto;
+import dixit.demo.dto.PostEditor;
+import dixit.demo.dto.UpdatePostDto;
 import dixit.demo.exception.NoSuchPost;
 import dixit.demo.repository.PostRepository;
 import jakarta.transaction.Transactional;
@@ -29,6 +31,16 @@ public class PostService {
 
     public List<FindPostDto> findAll(){
         return postRepository.findAllWithMember().stream().map(FindPostDto::new).collect(Collectors.toList());
+    }
+
+    public void edit(Long id, UpdatePostDto updatePostDto){
+        Post post = postRepository.findById(id).orElseThrow(NoSuchPost::new);
+        PostEditor.PostEditorBuilder editor = post.toEditor();
+        PostEditor build = editor.content(updatePostDto.getContent())
+                .title(updatePostDto.getTitle())
+                .build();
+        post.edit(build);
+
     }
 
     public void delete(Long id){
