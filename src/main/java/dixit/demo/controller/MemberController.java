@@ -4,6 +4,7 @@ import dixit.demo.dto.CreateMemberDto;
 import dixit.demo.dto.FindMemberDto;
 import dixit.demo.dto.Result;
 import dixit.demo.service.MemberService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/member/new")
-    public Long register(@RequestBody CreateMemberDto createMemberDto){
+    public Long register(@RequestBody @Valid CreateMemberDto createMemberDto){
         return memberService.save(createMemberDto);
     }
 

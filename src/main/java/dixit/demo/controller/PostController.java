@@ -24,7 +24,7 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public Result findAllLeft(){
+    public Result findAll(){
         return new Result<>(postService.findAll());
     }
 

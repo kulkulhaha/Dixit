@@ -11,5 +11,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+
+    server: {
+      proxy: {
+        '/api':{
+          "target":'http://localhost:8080', // Spring boot의 주소 및 포트
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        }
+      }
+    }
+
 })

@@ -1,6 +1,7 @@
 package dixit.demo.dto;
 
 import dixit.demo.domain.Comment;
+import dixit.demo.domain.Header;
 import dixit.demo.domain.Member;
 import dixit.demo.domain.Post;
 import jakarta.persistence.*;
@@ -23,18 +24,18 @@ public class FindPostDto {
 
     private Member member;
     private List<Comment> comments = new ArrayList<>();
-    private List<Post> child = new ArrayList<>();
-    private Post parent;
+    private Header header;
+
 
     @Builder
-    public FindPostDto(Long id, String title, String content, Member member, List<Comment> comments, List<Post> child, Post parent) {
+    public FindPostDto(Long id, String title, String content, Member member, List<Comment> comments, Header header) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.member = member;
         this.comments = comments;
-        this.child = child;
-        this.parent = parent;
+        this.header = header;
+
     }
 
     public FindPostDto(Post  post){
@@ -43,7 +44,6 @@ public class FindPostDto {
         this.content = post.getContent();
         this.member = post.getMember();
         this.comments = post.getComments();
-        this.child = post.getChild();
-        this.parent = post.getParent();
+        this.header = post.getHeader();
     }
 }

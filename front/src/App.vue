@@ -11,7 +11,7 @@ import Header from "@/components/Header.vue";
             <img  src="src/assets/img/background-gafab6dd08_1920.jpg">
     </div>
     <div class="ref">
-        <a href="/">DIXIT</a>
+        <a class="toHome" href="/">DIXIT</a>
     </div>
    <RouterView />
 </template>
@@ -37,7 +37,7 @@ img{
     position: relative;
     margin: 0px;
 }
-a{
+.toHome{
     text-decoration: none;
     color : white;
 }

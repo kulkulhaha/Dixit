@@ -30,7 +30,7 @@ public class PostService {
     }
 
     public List<FindPostDto> findAll(){
-        return postRepository.findAllWithMember().stream().map(FindPostDto::new).collect(Collectors.toList());
+        return postRepository.findAll().stream().map(FindPostDto::new).collect(Collectors.toList());
     }
 
     public void edit(Long id, UpdatePostDto updatePostDto){

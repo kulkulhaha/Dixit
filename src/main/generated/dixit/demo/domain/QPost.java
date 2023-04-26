@@ -24,8 +24,6 @@ public class QPost extends EntityPathBase<Post> {
 
     public final QBaseEntity _super = new QBaseEntity(this);
 
-    public final ListPath<Post, QPost> child = this.<Post, QPost>createList("child", Post.class, QPost.class, PathInits.DIRECT2);
-
     public final ListPath<Comment, QComment> comments = this.<Comment, QComment>createList("comments", Comment.class, QComment.class, PathInits.DIRECT2);
 
     public final StringPath content = createString("content");
@@ -36,6 +34,8 @@ public class QPost extends EntityPathBase<Post> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
+    public final QHeader header;
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     //inherited
@@ -45,8 +45,6 @@ public class QPost extends EntityPathBase<Post> {
     public final DateTimePath<java.time.LocalDateTime> lastModifiedDate = _super.lastModifiedDate;
 
     public final QMember member;
-
-    public final QPost parent;
 
     public final StringPath title = createString("title");
 
@@ -68,8 +66,8 @@ public class QPost extends EntityPathBase<Post> {
 
     public QPost(Class<? extends Post> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.header = inits.isInitialized("header") ? new QHeader(forProperty("header")) : null;
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
-        this.parent = inits.isInitialized("parent") ? new QPost(forProperty("parent"), inits.get("parent")) : null;
     }
 
 }

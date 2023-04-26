@@ -12,8 +12,6 @@ public interface PostRepository extends JpaRepository<Post,Long> ,PostRepository
     @EntityGraph(attributePaths = {"comments","child","parent"})
     Optional<Post> findOneById(Long id);
 
-    @EntityGraph(attributePaths = {"comments","child","parent"})
-    @Query("select p from LeftPost p join fetch p.member m")
-    List<Post> findAllWithMember();
+
 
 }

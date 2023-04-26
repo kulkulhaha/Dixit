@@ -6,6 +6,7 @@
         mode="horizontal"
         unique-opened
         menu-trigger="click"
+        router
     >
 
 
@@ -42,7 +43,7 @@
         <el-menu-item index="10">헬라어의 난이도에 따른 분류</el-menu-item>
         <el-menu-item index="11">DIXIT 유튜브 링크</el-menu-item>
         <el-menu-item index="12">연락처</el-menu-item>
-        <el-menu-item index="13">게시판</el-menu-item>
+        <el-menu-item index="/posts" >게시판</el-menu-item>
 
 
     </el-menu>

@@ -27,20 +27,17 @@ public class Post extends BaseEntity{
     private Member member;
     @OneToMany(mappedBy = "post",cascade = CascadeType.REMOVE)
     private List<Comment> comments = new ArrayList<>();
-    @OneToMany(mappedBy = "parent")
-    private List<Post> child = new ArrayList<>();
     @ManyToOne(fetch = LAZY)
     @JoinColumn
-    private Post parent;
+    private Header header;
 
     @Builder
-    public Post(String title, String content, Member member, List<Comment> comments, List<Post> child, Post parent) {
+    public Post(String title, String content, Member member, List<Comment> comments, Header header) {
         this.title = title;
         this.content = content;
         this.member = member;
         this.comments = comments;
-        this.child = child;
-        this.parent = parent;
+        this.header = header;
     }
 
     public PostEditor.PostEditorBuilder toEditor(){
