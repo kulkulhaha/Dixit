@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post,Long> ,PostRepositoryCustom {
-    @EntityGraph(attributePaths = {"comments","child","parent"})
+    @EntityGraph(attributePaths = {"comments"})
     Optional<Post> findOneById(Long id);
 
 

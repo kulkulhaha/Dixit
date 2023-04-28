@@ -29,5 +29,8 @@ const moveToRead = () =>{
             </div>
         </li>
     </ul>
+    <div>
+        <router-link :to="{name:'write'}">글쓰기</router-link>
+    </div>
 
 </template>

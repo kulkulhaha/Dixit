@@ -11,13 +11,12 @@ const write = function(){
         content: content.value,
     })
         .then(()=>{router.replace({
-            name: "home",
+            name: "posts",
         });
         });
 };
 </script>
 <template>
-    <a href = "/posts">a</a>
     <div>
         <el-input v-model="title" placeholder="제목을 입력해주세요"/>
     </div>
