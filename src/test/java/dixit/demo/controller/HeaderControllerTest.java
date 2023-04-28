@@ -59,12 +59,12 @@ class HeaderControllerTest {
                 .content(s1));
         mockMvc.perform(post("http://localhost8080/header/new")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(s1));
+                .content(s2));
         mockMvc.perform(get("http://localhost8080/header")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(s1)).andDo(print());
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
         System.out.println("s2 = " + s2);
         System.out.println("s1 = " + s1);
-        //TODO long 타입을 post요청 으로 받는게 안되는 듯 하다.
+
     }
 }

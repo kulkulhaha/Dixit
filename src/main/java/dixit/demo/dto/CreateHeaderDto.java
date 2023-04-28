@@ -1,6 +1,7 @@
 package dixit.demo.dto;
 
 import dixit.demo.domain.Header;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateHeaderDto {
 
+    @NotBlank
     private String name;
     private Long parentHeaderId;
 
