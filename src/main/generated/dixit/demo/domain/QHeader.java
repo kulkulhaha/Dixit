@@ -26,11 +26,11 @@ public class QHeader extends EntityPathBase<Header> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final StringPath name = createString("name");
+
     public final QHeader parent;
 
     public final ListPath<Post, QPost> posts = this.<Post, QPost>createList("posts", Post.class, QPost.class, PathInits.DIRECT2);
-
-    public final StringPath title = createString("title");
 
     public QHeader(String variable) {
         this(Header.class, forVariable(variable), INITS);

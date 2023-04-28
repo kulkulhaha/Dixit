@@ -9,6 +9,7 @@ import dixit.demo.exception.NoSuchPost;
 import dixit.demo.repository.PostRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class PostService {
     }
 
     public List<FindPostDto> findAll(){
-        return postRepository.findAll().stream().map(FindPostDto::new).collect(Collectors.toList());
+        return postRepository.findAll(Sort.by("id").descending()).stream().map(FindPostDto::new).collect(Collectors.toList());
     }
 
     public void edit(Long id, UpdatePostDto updatePostDto){

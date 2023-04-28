@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import {RouterLink, RouterView} from 'vue-router'
 import Header from "@/components/Header.vue";
+import CustomHeader from "@/components/CustomHeader.vue";
 
 </script>
 
 <template>
     <Header/>
-
+    <CustomHeader/>
     <div class="big">
             <img  src="src/assets/img/background-gafab6dd08_1920.jpg">
     </div>

@@ -66,7 +66,7 @@ public class QPost extends EntityPathBase<Post> {
 
     public QPost(Class<? extends Post> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.header = inits.isInitialized("header") ? new QHeader(forProperty("header")) : null;
+        this.header = inits.isInitialized("header") ? new QHeader(forProperty("header"), inits.get("header")) : null;
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 

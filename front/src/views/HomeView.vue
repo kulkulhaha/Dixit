@@ -5,7 +5,7 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 const posts=ref([]);
 axios.get("/api/posts?page=1&size=5").then(response=>{
-    response.data.forEach((r:any)=>{
+    response.data.data.forEach((r:any)=>{
         posts.value.push(r);
     });
 });

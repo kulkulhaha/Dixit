@@ -6,7 +6,6 @@ const router = useRouter();
 const posts=ref([]);
 axios.get("/api/posts").then(response=>{
     response.data.data.forEach((r)=>posts.value.push(r));
-
     });
 const moveToRead = () =>{
     router.push({name:"read"})
@@ -24,8 +23,8 @@ const moveToRead = () =>{
                 {{post.content}}
             </div>
             <div class="sub d-flex">
-                <div class="category">개발</div>
-                <div class="regDate">2023-04-23</div>
+                <div class="createdBy">{{ post.createdBy }}</div>
+                <div class="regDate">{{ post.createdDate }}</div>
             </div>
         </li>
     </ul>

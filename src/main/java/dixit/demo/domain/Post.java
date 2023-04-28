@@ -36,7 +36,7 @@ public class Post extends BaseEntity{
         this.title = title;
         this.content = content;
         this.member = member;
-        this.comments = comments;
+        this.comments = comments != null?comments:new ArrayList<>();
         this.header = header;
     }
 

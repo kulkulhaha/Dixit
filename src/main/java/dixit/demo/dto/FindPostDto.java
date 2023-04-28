@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class FindPostDto {
     private Member member;
     private List<Comment> comments = new ArrayList<>();
     private Header header;
+    private LocalDateTime createdDate;
+    private String createdBy;
 
 
     @Builder
@@ -45,5 +48,7 @@ public class FindPostDto {
         this.member = post.getMember();
         this.comments = post.getComments();
         this.header = post.getHeader();
+        this.createdDate = post.getCreatedDate();
+        this.createdBy = post.getCreatedBy();
     }
 }

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class UpdatePostDto {
     @NotBlank
     private String title;
+    @NotBlank
     private String content;
 
     @Builder
